@@ -124,9 +124,20 @@
     // ..стили для липкого хедера
   }
 
-
+  &-logoBx {
+    display: none;
+  }
+  &-burger {
+    display: none;
+  }
   @include media(800) {
     padding: 16px;
+    &-logoBx {
+      display: block;
+    }
+    &-burger {
+      display: block;
+    }
     &-helper {
       position: fixed;
       bottom: 0;
@@ -186,6 +197,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      & img {
+        &:last-child {
+          display: none;
+        }
+      }
     }
     &__logo {
       width: 40px;

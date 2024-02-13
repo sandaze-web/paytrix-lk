@@ -428,6 +428,9 @@
       &__button {
         margin-top: 40px;
       }
+      &__title {
+        font-size: rem(20);
+      }
     }
     &-projects {
       padding: 30px 24px;
@@ -465,6 +468,11 @@
       padding: 30px 24px 0 24px;
       &__title {
         padding-bottom: 30px;
+      }
+    }
+    &-form {
+      &-grid {
+        grid-template-columns: repeat(1, 1fr);
       }
     }
   }
