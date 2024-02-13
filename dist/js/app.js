@@ -113,6 +113,9 @@ const togglePopupWindows = () => {
       if (document.querySelector('._is-open')) {
         document.querySelectorAll('._is-open').forEach((modal) => {
           modal.classList.remove('_is-open')
+          let burger = document.querySelector('.lk-header-burger')
+          if(burger) burger.classList.remove('active')
+
         })
       }
 
@@ -128,6 +131,8 @@ const togglePopupWindows = () => {
 
       popup.classList.remove('_is-open')
       toggleBodyLock(false)
+      let burger = document.querySelector('.lk-header-burger')
+      if(burger) burger.classList.remove('active')
     }
   })
 }
@@ -157,28 +162,30 @@ const menuClose = () => {
 
 
 document.addEventListener('DOMContentLoaded', function(){ // Аналог $(document).ready(function(){
-  document.querySelector('.sidebar').addEventListener('mouseover', () => {
-      document.querySelector('.sidebar').style.maxWidth =  document.querySelector('.sidebar').scrollWidth + 'px';
-      document.querySelector('.sidebar').classList.add('show')
+    if(window.innerWidth > 800) {
+        document.querySelector('.sidebar').addEventListener('mouseover', () => {
+            document.querySelector('.sidebar').style.maxWidth =  document.querySelector('.sidebar').scrollWidth + 'px';
+            document.querySelector('.sidebar').classList.add('show')
 
-      document.querySelectorAll('.sidebar-menu__link').forEach(el => {
-          el.style.maxWidth = '100%'
-          el.querySelector('span').style.maxWidth = el.scrollWidth + 'px'
-          el.querySelector('span').style.opacity = 1
-          el.querySelector('span').style.paddingLeft = '16px'
-      })
-  })
-  document.querySelector('.sidebar').addEventListener('mouseout', () => {
-      document.querySelector('.sidebar').style.maxWidth =  '112px';
-      document.querySelector('.sidebar').classList.remove('show')
+            document.querySelectorAll('.sidebar-menu__link').forEach(el => {
+                el.style.maxWidth = '100%'
+                el.querySelector('span').style.maxWidth = el.scrollWidth + 'px'
+                el.querySelector('span').style.opacity = 1
+                el.querySelector('span').style.paddingLeft = '16px'
+            })
+        })
+        document.querySelector('.sidebar').addEventListener('mouseout', () => {
+            document.querySelector('.sidebar').style.maxWidth =  '112px';
+            document.querySelector('.sidebar').classList.remove('show')
 
-      document.querySelectorAll('.sidebar-menu__link').forEach(el => {
-          el.style.maxWidth = '60px'
-          el.querySelector('span').style.maxWidth = 0
-          el.querySelector('span').style.opacity = 0
-          el.querySelector('span').style.paddingLeft = '0px'
-      })
-  })
+            document.querySelectorAll('.sidebar-menu__link').forEach(el => {
+                el.style.maxWidth = '60px'
+                el.querySelector('span').style.maxWidth = 0
+                el.querySelector('span').style.opacity = 0
+                el.querySelector('span').style.paddingLeft = '0px'
+            })
+        })
+    }
 
     if(document.querySelector('.set_data')) {
         let maxButtons = document.querySelectorAll('.set_data')
@@ -217,6 +224,23 @@ document.addEventListener('DOMContentLoaded', function(){ // Аналог $(docu
         })
         buttonShowPassword.addEventListener('mouseup', () => {
             buttonShowPassword.parentNode.querySelector('input').type = 'password'
+        })
+    }
+
+    if(document.querySelector('.lk-header-burger')) {
+        let burger = document.querySelector('.lk-header-burger'),
+            menu = document.querySelector('.sidebar-nav')
+        burger.addEventListener('click', () => {
+            menu.classList.toggle('_is-open')
+            burger.classList.toggle('active')
+            toggleBodyLock(menu.classList.contains('_is-open'))
+        })
+    }
+
+    if(document.querySelector('.lk-header-profile')) {
+        let profile = document.querySelector('.lk-header-profile')
+        profile.addEventListener('click', () => {
+            document.querySelector('.lk-header-wrapper').classList.toggle('_is-open')
         })
     }
 });

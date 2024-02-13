@@ -88,6 +88,9 @@ const togglePopupWindows = () => {
       if (document.querySelector('._is-open')) {
         document.querySelectorAll('._is-open').forEach((modal) => {
           modal.classList.remove('_is-open')
+          let burger = document.querySelector('.lk-header-burger')
+          if(burger) burger.classList.remove('active')
+
         })
       }
 
@@ -103,6 +106,8 @@ const togglePopupWindows = () => {
 
       popup.classList.remove('_is-open')
       toggleBodyLock(false)
+      let burger = document.querySelector('.lk-header-burger')
+      if(burger) burger.classList.remove('active')
     }
   })
 }

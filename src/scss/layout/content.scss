@@ -207,6 +207,15 @@
     border-radius: 20px;
     background-color: #fff;
     padding: 40px;
+    &__info {
+      @include notLast {
+        margin-right: 35px;
+      }
+      &:first-child {
+        flex-basis: 100%;
+        margin-bottom: 14px;
+      }
+    }
     &__item {
       padding-top: 30px;
       padding-bottom: 30px;
@@ -225,8 +234,9 @@
     }
     &-main {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       padding-top: 18px;
+      flex-wrap: wrap;
     }
     &__info {
       display: flex;

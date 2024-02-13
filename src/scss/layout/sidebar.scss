@@ -49,6 +49,8 @@
     align-self: flex-start;
     justify-self: flex-start;
     width: 100%;
+    opacity: 1;
+    visibility: visible;
     &:after {
       content: '';
       position: absolute;
@@ -105,6 +107,50 @@
     margin-top: auto;
   }
   @include media(800) {
-    display: none;
+    max-width: 0 !important;
+    &-logo {
+      display: none;
+    }
+    &-nav {
+      position: fixed;
+      opacity: 0;
+      visibility: hidden;
+      background: rgba(#000, .75);
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-top: 90px;
+      z-index: 60;
+    }
+    &-menu {
+      border-radius: 20px;
+      background: #fff;
+      padding: 24px;
+      &__item {
+        &.is_Panel {
+          display: none;
+        }
+      }
+      &__link {
+        max-width: none;
+        & span {
+          max-width: none;
+          opacity: 1;
+          margin-left: 14px;
+        }
+        &.active {
+          background-color: transparent;
+          color: #7a7987;
+          & span {
+            color: #7a7987;
+          }
+          & path {
+            fill: #7a7987;
+          }
+        }
+      }
+    }
+    &__out {
+      display: none;
+    }
   }
 }

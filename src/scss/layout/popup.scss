@@ -3,7 +3,9 @@
   & .popup-box {
     max-width: 555px;
     width: 100%;
-    overflow-y: auto;
+    @include media(800) {
+      overflow-y: auto;
+    }
   }
   & .lk {
     &__title {

@@ -381,9 +381,14 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  padding: 21px 24px 21px;
+  padding: 22px 24px 22px;
   border-bottom: 1px solid rgb(238, 239, 242);
   background-color: #fff;
+}
+@media (max-width: 800px) {
+  .lk-header {
+    z-index: 61;
+  }
 }
 .lk-header-inner {
   display: flex;
@@ -461,11 +466,26 @@ body {
   transition: 0.4s;
   opacity: 0;
   visibility: hidden;
+  left: auto;
+  overflow: unset;
+  padding: 0;
+  width: unset;
 }
 .lk-header-info {
   border-radius: 20px;
   background: #fff;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.lk-header-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lk-header-info-about {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -506,7 +526,7 @@ body {
 }
 @media (max-width: 800px) {
   .lk-header {
-    padding: 16px;
+    padding: 0;
   }
   .lk-header-logoBx {
     display: block;
@@ -556,6 +576,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 16px;
+    background-color: #fff;
   }
   .lk-header-logoBx {
     max-width: 145px;
@@ -575,9 +597,59 @@ body {
   .lk-header-burger img:last-child {
     display: none;
   }
+  .lk-header-burger.active img:first-child {
+    display: none;
+  }
+  .lk-header-burger.active img:last-child {
+    display: block;
+  }
   .lk-header__logo {
     width: 40px;
     height: 40px;
+  }
+  .lk-header-panel:hover .lk-header-wrapper {
+    opacity: unset;
+    visibility: unset;
+  }
+  .lk-header-wrapper {
+    position: fixed;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    background: rgba(0, 0, 0, 0.75);
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 90px;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transition: 0.4s;
+    z-index: -1;
+  }
+  .lk-header-wrapper._is-open {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  .lk-header-info {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .lk-header-info .lk-header__logo {
+    width: 50px;
+    height: 50px;
+  }
+  .lk-header-info-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+  .lk-header-info-about {
+    margin-left: 16px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .lk-header-info .lk-header__name {
+    display: block;
+    margin-top: 0;
   }
 }
 
@@ -649,6 +721,8 @@ body {
   align-self: flex-start;
   justify-self: flex-start;
   width: 100%;
+  opacity: 1;
+  visibility: visible;
 }
 .sidebar-nav:after {
   content: "";
@@ -703,6 +777,48 @@ body {
 }
 @media (max-width: 800px) {
   .sidebar {
+    max-width: 0 !important;
+  }
+  .sidebar-logo {
+    display: none;
+  }
+  .sidebar-nav {
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0.75);
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 90px;
+    z-index: 60;
+  }
+  .sidebar-menu {
+    border-radius: 20px;
+    background: #fff;
+    padding: 24px;
+  }
+  .sidebar-menu__item.is_Panel {
+    display: none;
+  }
+  .sidebar-menu__link {
+    max-width: none;
+  }
+  .sidebar-menu__link span {
+    max-width: none;
+    opacity: 1;
+    margin-left: 14px;
+  }
+  .sidebar-menu__link.active {
+    background-color: transparent;
+    color: #7a7987;
+  }
+  .sidebar-menu__link.active span {
+    color: #7a7987;
+  }
+  .sidebar-menu__link.active path {
+    fill: #7a7987;
+  }
+  .sidebar__out {
     display: none;
   }
 }
@@ -889,6 +1005,13 @@ body {
   background-color: #fff;
   padding: 40px;
 }
+.content-projects__info:not(:last-child) {
+  margin-right: 35px;
+}
+.content-projects__info:first-child {
+  flex-basis: 100%;
+  margin-bottom: 14px;
+}
 .content-projects__item {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -907,8 +1030,9 @@ body {
 }
 .content-projects-main {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding-top: 18px;
+  flex-wrap: wrap;
 }
 .content-projects__info {
   display: flex;
@@ -1151,7 +1275,11 @@ body {
 .popup.lk .popup-box {
   max-width: 555px;
   width: 100%;
-  overflow-y: auto;
+}
+@media (max-width: 800px) {
+  .popup.lk .popup-box {
+    overflow-y: auto;
+  }
 }
 .popup.lk .lk__title {
   font-size: 1.125rem;
