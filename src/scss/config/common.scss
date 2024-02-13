@@ -1,0 +1,43 @@
+// Заголовки, общие БЄМ блоки и проче...
+
+body {
+  font-family: 'TTInterfaces';
+  font-weight: 400;
+  background: #f3f4f7;
+}
+.btn {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-progress-appearance: none;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  padding: 12px 50px;
+  font-size: var(--fs-2);
+  line-height: 25.2px;
+  font-weight: 600;
+  border: none;
+  background: linear-gradient(45deg, #0078ff 50%, #00f7ff 100%);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
+  background-size: 100%;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+  height: 49px;
+}
+.main.lk {
+  padding-top: 150px;
+  @include media(800) {
+    padding-top: 120px;
+  }
+}

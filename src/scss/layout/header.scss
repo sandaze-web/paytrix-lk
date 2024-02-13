@@ -1,0 +1,212 @@
+// =====================================================================================================================
+.lk-header {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 21px 24px 21px;
+  border-bottom: 1px solid rgba(238, 239, 242, 1);
+  background-color: #fff;
+  &-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &-helper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &-nav {
+    display: flex;
+    align-items: center;
+    &__item {
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      border-radius: 8px;
+      transition: .4s;
+      font-weight: 500;
+      & span {
+        color: #7a7987;
+      }
+      &.active {
+        background: rgba(245, 245, 245, 1);
+        & path {
+          fill: #000015;
+        }
+        & span {
+          color: #000015;
+        }
+      }
+      & svg {
+        margin-right: 14px;
+      }
+    }
+  }
+  &-panel {
+    position: absolute;
+    right: 24px;
+    &:hover .lk-header-wrapper {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  &-profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  &__name {
+    font-weight: 500;
+    margin-right: 14px;
+  }
+  &__logo {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: #f5f5f5;
+    & span {
+      font-size: rem(0);
+      &:first-letter {
+        font-size: rem(18);
+        font-weight: 600;
+      }
+    }
+  }
+  &-wrapper {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 36px);
+    transition: .4s;
+    opacity: 0;
+    visibility: hidden;
+  }
+  &-info {
+    border-radius: 20px;
+    background: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    & .lk-header__name {
+      margin-top: 16px;
+    }
+    &__email {
+      margin-top: 4px;
+      line-height: 140%;
+      text-align: center;
+      color: #7a7987;
+      font-size: rem(14);
+      font-weight: 500;
+    }
+  }
+  &-pages {
+    min-width: 243px;
+    padding-top: 20px;
+    &__item {
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      & svg {
+        margin-right: 16px;
+      }
+      & span {
+        color: #7a7987;
+        font-weight: 500;
+      }
+    }
+  }
+  &.sticky {
+    // ..стили для липкого хедера
+  }
+
+
+  @include media(800) {
+    padding: 16px;
+    &-helper {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      border-top: 1px solid #eeeff2;
+      background-color: #fff;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 0;
+    }
+    &-nav {
+      &__item {
+        padding: 0;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: rem(12);
+        @include notLast {
+          margin-right: 80px;
+        }
+        & svg {
+          margin-right: 0;
+          margin-bottom: 4px;
+        }
+        &.active {
+          background-color: transparent;
+        }
+      }
+    }
+    &-panel {
+      position: relative;
+      right: 0;
+    }
+    &__name {
+      display: none;
+    }
+    &-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &-logoBx {
+      max-width: 145px;
+      & img {
+        max-width: 100%;
+      }
+    }
+    &-burger {
+      border-radius: 10px;
+      width: 40px;
+      height: 40px;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &__logo {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+.helper {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  background: #fff;
+  border-radius: 8px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include media(800) {
+    display: none;
+  }
+}
+// =====================================================================================================================
